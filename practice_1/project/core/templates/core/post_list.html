@@ -1,0 +1,22 @@
+{% load static %}
+<div class="row">
+    {% for post in post_list %}
+    <div class="col-sm-4">
+        <div class="card" style="margin-bottom: 6%;">
+            <div class="card-body">
+                <h5 class="card-title"> {{ post.title }} </h5>
+                {% if post.image %}
+                <a href="{{ post.get_absolute_url }}"><img class="card-img" height="100"
+                                                              src="{{ post.image.url }}" alt="img"></a>
+                {% else %}
+                <a href="{{ post.get_absolute_url }}"><img class="card-img" height="300"
+                                                              src="{% static 'img/no_img.png' %}" alt="img"></a>
+                {% endif %}
+                <p class="card-text"> {{ post.short_description }} </p>
+                <a href="{{ post.get_absolute_url }}" class="btn btn-primary">read more</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+</div>

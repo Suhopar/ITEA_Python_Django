@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-4">{{ post.title }}</h1>
+        <p class="lead">{{ post.description }}</p>
+        <p class="load">{{ post.text }}</p>
+    </div>
+</div>
+
+{% if post.image %}
+<a href="{{ post.get_absolute_url }}"><img alt="img" class="card-img"  src="{{ post.image.url }}"
+                                           width="300"></a>
+{% else %}
+<a href="{{ post.get_absolute_url }}"><img alt="img" class="card-img"  src="{% static 'img/no_img.png' %}"
+                                           width="300"></a>
+{% endif %}
+
+{% for comment in comment_list %}
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <p class="lead">{{ comment.sender_name }}</p>
+        <p class="load">{{ comment.text_comment }}</p>
+        <p class="load">{{ comment.pub_date}}</p>
+    </div>
+</div>
+{% endfor %}
+
+{% endblock content %}
