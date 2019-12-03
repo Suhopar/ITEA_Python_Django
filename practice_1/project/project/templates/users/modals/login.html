@@ -1,0 +1,20 @@
+<div class="modal" id="login">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="container">
+
+        <form class="form-group" action="{% url 'users:login' %}" method="POST">
+          {% csrf_token %}
+          <div class="text-center mb-4">
+            <p class="h3">Авторизация</p>
+          </div>
+          <input type="email" name="username" class="form-control" placeholder="Email" required autofocus>
+          <input type="password" name="password" class="form-control" placeholder="Пароль" required>
+          <button class="btn btn-primary btn-block" type="submit">Войти</button>
+          <button type="button" class="btn btn-block btn-outline-secondary" data-dismiss="modal" data-toggle="modal" data-target="#register">Зарегистрироваться</button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>

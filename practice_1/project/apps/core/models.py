@@ -3,9 +3,15 @@ from django.utils import timezone
 from autoslug import AutoSlugField
 from django.urls import reverse
 
+from apps.users.models import CustomUser
+
 
 # Create your models here.
 class Post(models.Model):
+    author = models.ForeignKey(
+        CustomUser,
+        on_delete=models.CASCADE
+    )
     title = models.CharField(
         verbose_name='title',
         max_length=255,
@@ -47,16 +53,21 @@ class Post(models.Model):
     def get_absolute_url(self):
         return reverse('core:post', kwargs={'slug': self.slug, 'pk': self.pk})
 
+    @property
+    def get_count_comment_for_post(self):
+        return len(Comment.objects.filter(post=(Post.objects.filter(pk=self.pk).first())).all())
+
+
 
 class Comment(models.Model):
+    author = models.ForeignKey(
+        CustomUser,
+        on_delete=models.CASCADE
+    )
     post = models.ForeignKey(
         Post,
         verbose_name='post',
         on_delete=models.CASCADE
-    )
-    sender_name = models.CharField(
-        verbose_name='sender name',
-        max_length=16
     )
     text_comment = models.TextField(
         verbose_name='text comment',

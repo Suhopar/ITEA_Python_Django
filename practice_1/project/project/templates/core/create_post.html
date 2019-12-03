@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+{% if user.is_authenticated %}
+      <div class="container">
+
+        <form class="form-group" action="{% url 'core:create_post' %}" method="POST">
+          {% csrf_token %}
+          <div class="text-center mb-4">
+            <p class="h3">create_post</p>
+          </div>
+          <input type="text" name="title" class="form-control" placeholder="title" required><br/>
+          <input type="text" name="description" class="form-control" placeholder="description" required><br/>
+            <textarea rows="4" cols="50"  name="text" class="form-control" placeholder="text" required></textarea><br/>
+            <input type="file" name="image" class="form-control"><br/>
+          <button class="btn btn-primary btn-block" type="submit">create_post</button><br/>
+        </form>
+
+      </div>
+{% else %}
+<a class="btn btn-primary" href="{% url 'users:login' %}" style="margin-left: 5px;"> Login </a>
+{% endif%}
+
+{% endblock content %}

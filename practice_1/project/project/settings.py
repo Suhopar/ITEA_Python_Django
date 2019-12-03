@@ -33,6 +33,10 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+LOCAL_APPS = [
+    'apps.core',
+    'apps.users',
+]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -41,9 +45,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'autoslug',
+]+LOCAL_APPS
 
-    'core',
-]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -131,3 +135,31 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static_content', 'static')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static_content', 'media')
+
+LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = '/users/login/'
+
+AUTH_USER_MODEL = 'users.CustomUser'
+
+ADMINS = (('Name', 'ysysuhopar@gmail.com'),)
+
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'freefreepost@gmail.com'
+EMAIL_HOST_PASSWORD = 'freeepostt22'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+# celery
+CELERY_BROKER_URL = 'redis://localhost:6379'
+CELERY_RESULT_BACKEND = 'redis://localhost:6379'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TASK_SERIALIZER = 'json'
+# CELERY_TASK_IGNORE_RESULT = True
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass

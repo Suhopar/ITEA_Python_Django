@@ -1,0 +1,21 @@
+<div class="modal" id="register">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="container">
+          <form class="form-group" action="{% url 'users:register' %}" method="POST">
+            {% csrf_token %}
+            <div class="text-center mb-4">
+              <p class="h3">Регистрация</p>
+            </div>
+            <input type="email" name="email" class="form-control" placeholder="Email" required>
+            <input type="phone" name="phone" class="form-control" placeholder="Телефон" required>
+            <input type="text" name="name" class="form-control" placeholder="Имя" required>
+            <input type="text" name="surname" class="form-control" placeholder="Фамилия" required>
+            <input type="password" name="password1" class="form-control" placeholder="Пароль" required>
+            <input type="password" name="password2" class="form-control" placeholder="Повторите пароль" required>
+            <button class="btn btn-primary btn-block" type="submit">Зарегистрироваться</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
