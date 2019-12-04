@@ -4,8 +4,8 @@
 
 {% if user.is_authenticated %}
       <div class="container">
-
-        <form class="form-group" action="{% url 'core:create_post' %}" method="POST">
+<!--          <form class="form-group" method="POST" enctype="multipart/form-data">-->
+        <form class="form-group" action="{% url 'core:create_post' %}"  method="POST" enctype="multipart/form-data">
           {% csrf_token %}
           <div class="text-center mb-4">
             <p class="h3">create_post</p>

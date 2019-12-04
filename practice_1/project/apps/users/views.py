@@ -24,7 +24,7 @@ class ProfileView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        user = CustomUser.objects.filter(phone=self.request.user).first()
+        user = CustomUser.objects.filter(phone=self.request.user.phone).first()
         print(user)
         context['post_list'] = Post.objects.filter(author=user).all()
         return context
