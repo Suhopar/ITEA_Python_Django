@@ -40,6 +40,7 @@ class CreatePostView(FormView):
 
     def form_valid(self, form):
         user = get_user_model().objects.filter(phone=self.request.user.phone).first()
-        post = form.save(commit=False)  # В этом моменте зафиксировал данные из формы
-        post.author = user  # добавил автора
-        post.save()  # сохранил форму
+        post = form.save(commit=False)
+        post.author = user
+        post.save()
+        return super().form_valid(form)
