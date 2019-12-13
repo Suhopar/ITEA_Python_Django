@@ -1,15 +1,15 @@
+{% extends 'base.html' %}
 {% load static %}
+{% load custom_filters %}
+
+{% block content %}
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h3 >Top 5 posts</h3>
+    </div>
+</div>
 
 <div class="row">
-<!--    <form class="form-group" action=" urlcore:create_post"  method="POST" >-->
-<!--          {% csrf_token %}-->
-<!--          <select  name="category" class="form-control" id="exampleFormControlSelect1">-->
-<!--            <option class="disabled" name="" value=""></option>-->
-<!--            <option class="disabled" name="" value=""></option>-->
-<!--          </select>-->
-<!--          <button class="btn btn-primary btn-block" type="submit">create_post</button><br/>-->
-<!--        </form>-->
-
     {% for post in post_list %}
     <div class="col-md-4 ">
         <div class="card shadow-sm p-3 mb-5 rounded" style="margin-bottom: 6%;">
@@ -34,3 +34,4 @@
     </div>
     {% endfor %}
 </div>
+{% endblock content %}

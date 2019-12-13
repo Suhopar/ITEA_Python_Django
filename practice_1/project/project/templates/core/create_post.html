@@ -2,24 +2,26 @@
 {% load static %}
 {% block content %}
 
-{% if user.is_authenticated %}
       <div class="container">
-<!--          <form class="form-group" method="POST" enctype="multipart/form-data">-->
         <form class="form-group" action="{% url 'core:create_post' %}"  method="POST" enctype="multipart/form-data">
           {% csrf_token %}
           <div class="text-center mb-4">
             <p class="h3">create_post</p>
           </div>
           <input type="text" name="title" class="form-control" placeholder="title" required><br/>
-          <input type="text" name="description" class="form-control" placeholder="description" required><br/>
+          <label for="exampleFormControlSelect1">Category</label>
+          <select  name="category" class="form-control" id="exampleFormControlSelect1">
+          {% for category in category_list %}
+            <option class="disabled" name="{{category.title}}" value="{{category.title}}">{{category.title}}</option>
+          {% endfor %}
+          </select>
+          <p></p>
+          <input type="text" name="description" class="form-control" placeholder="description"  required><br/>
             <textarea rows="4" cols="50"  name="text" class="form-control" placeholder="text" required></textarea><br/>
-            <input type="file" name="image" class="form-control"><br/>
+            <input type="file" name="image" class="form-control-file"><br/>
           <button class="btn btn-primary btn-block" type="submit">create_post</button><br/>
         </form>
 
       </div>
-{% else %}
-<a class="btn btn-primary" href="{% url 'users:login' %}" style="margin-left: 5px;"> Login </a>
-{% endif%}
 
 {% endblock content %}

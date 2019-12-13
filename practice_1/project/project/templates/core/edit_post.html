@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+      <div class="container">
+        <form class="form-group" action="{% url 'core:edit_post' %}"  method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="text-center mb-4">
+            <p class="h3">Edit post</p>
+          </div>
+          <input type="text" name="title" class="form-control" placeholder="title" value="{{post.title}}" required><br/>
+          <label for="exampleFormControlSelect1">Category</label>
+          <select  name="category" class="form-control" id="exampleFormControlSelect1">
+          <option class="disabled" name="{{category.title}}"  selected>{{post.category.title}}</option>
+
+          {% for category in category_list %}
+            <option class="disabled" name="{{category.title}}" value="{{category.title}}">{{category.title}}</option>
+          {% endfor %}
+          </select>
+          <p></p>
+          <input type="text" name="description" class="form-control" placeholder="description" value="{{post.description}}" required><br/>
+            <textarea rows="4" cols="50"  name="text" class="form-control" placeholder="text" required>{{post.text}}</textarea><br/>
+            <p>Choose a photo</p>
+            <input type="file" name="image" class="form-control-file"><br/>
+          <button class="btn btn-primary btn-block" type="submit">edit_post</button><br/>
+        </form>
+
+      </div>
+
+{% endblock content %}

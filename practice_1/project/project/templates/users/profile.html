@@ -5,7 +5,7 @@
 
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
-        <h3 class="display-4">{{ user.name }} {{ user.surname }}</h3>
+        <h3 >{{ user.name }} {{ user.surname }}</h3>
     </div>
 </div>
 
@@ -15,8 +15,8 @@
     <p></p>
     <div class="row">
         {% for post in post_list %}
-        <div class="col-sm-4">
-            <div class="card" style="margin-bottom: 6%;">
+        <div class="col-md-4">
+            <div class="card shadow-sm p-3 mb-5 rounded" style="margin-bottom: 6%;">
                 <div class="card-body">
                     <h5 class="card-title"> {{ post.title }} </h5>
                     {% if post.image %}
@@ -27,9 +27,12 @@
                                                                src="{% static 'img/no_img.png' %}" alt="img"></a>
                     {% endif %}
                     <p class="card-text"> {{ post.short_description }} </p>
-                    <p class="card-text"> Author: {{ post.author.name }} {{ post.author.surname }} </p>
-                    <p class="card-text"> Number of comments: {{post.get_count_comment_for_post}}</p>
-                    <a href="{{ post.get_absolute_url }}" class="btn btn-primary">read more</a>
+                    <p class="card-text"> Category: {{ post.category }} </p>
+                    <p class="card-text text-primary"> Author: {{ post.author.name }} {{ post.author.surname }} </p>
+                    <p class="card-text"> Comments: {{post.get_count_comment_for_post}}</p>
+                    <p class="load">Like: {{ post.get_count_like }}</p>
+
+                    <a href="{{ post.get_absolute_url }}" class="btn btn-primary shadow-sm ">read more</a>
                 </div>
             </div>
         </div>

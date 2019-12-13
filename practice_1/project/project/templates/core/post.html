@@ -1,40 +1,65 @@
 {% extends 'base.html' %}
+{% load custom_filters %}
 
 {% load static %}
 
 {% block content %}
 
+{% if post.author == user %}
+<div class="jumbotron jumbotron-fluid">
+    <div class="container ">
+
+        <h4 class="text-success">Settings for the author</h4>
+        <form class="form-group d-inline" action="{% url 'core:remove-post' post.pk %}" method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger shadow-sm">Delete post</button>
+        </form>
+<!--        <a class="btn btn-primary" href="url 'core:post-update' pk=post.pk" style="margin-left: 5px;"> Edit post </a>-->
+    </div>
+</div>
+{% endif %}
+
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
-        <h1 class="display-4">{{ post.title }}</h1>
-        <p class="lead">{{ post.description }}</p>
+        <h1>{{ post.title|title|semicolon}}</h1>
+        <!--        <p class="lead">{{ post.description }}</p>-->
         <p class="load">{{ post.text }}</p>
-        <p class="card-text"> Author: {{ post.author.name }} {{ post.author.surname }} </p>
+        <p class="load"> Category: {{ post.category }} </p>
+        <p class="load text-primary"> Author: {{ post.author.name }} {{ post.author.surname|text_emoji  }} </p>
+        <p class="load">Publication date: {{ post.pub_date}}</p>
+        <p class="load">Like: {{ post.get_count_like }}</p>
+        <form class="form-group" action="{% url 'core:like-post' post.pk %}" method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-warning shadow-sm">{{ like_text }}</button>
+        </form>
+
     </div>
 </div>
 
 {% if post.image %}
-<a href="{{ post.get_absolute_url }}"><img alt="img" class="card-img"  src="{{ post.image.url }}"
+<a href="{{ post.get_absolute_url }}"><img alt="img" class="card-img" src="{{ post.image.url }}"
                                            width="300"></a>
 {% else %}
-<a href="{{ post.get_absolute_url }}"><img alt="img" class="card-img"  src="{% static 'img/no_img.png' %}"
+<a href="{{ post.get_absolute_url }}"><img alt="img" class="card-img" src="{% static 'img/no_img.png' %}"
                                            width="300"></a>
 {% endif %}
 
-<p> </p>
+<p></p>
 
 {% if user.is_authenticated %}
 <div class="jumbotron jumbotron-fluid">
-<div class="container">
-        <form class="form-group"  method="POST">
-          {% csrf_token %}
-          <div class="text-left mb-4">
-            <p class="h3">create_comment</p>
-          </div>
-            <textarea rows="4" cols="50"  name="text_comment" class="form-control" placeholder="text_comment" required></textarea><br/>
-            <button class="btn btn-primary btn-block" type="submit">create_comment</button><br/>
+    <div class="container">
+        <form class="form-group" action="{% url 'core:add-comment' post.pk %}" method="POST">
+            {% csrf_token %}
+            <div class="text-left mb-4">
+                <p class="h3">Create comment</p>
+            </div>
+            <textarea rows="4" cols="50" name="text_comment" class="form-control" placeholder="text_comment"
+                      required></textarea><br/>
+            <button class="btn btn-primary btn-block shadow-sm " type="submit">Save comment</button>
+            <br/>
         </form>
-      </div>
+    </div>
 </div>
 {% endif%}
 
@@ -44,6 +69,12 @@
         <p class="lead">Author: {{ comment.author.name }} {{ comment.author.surname }}</p>
         <p class="load">{{ comment.text_comment }}</p>
         <p class="load">{{ comment.pub_date}}</p>
+        {% if comment.author == user %}
+        <form class="form-group" action="{% url 'core:remove-comment' comment.pk %}" method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger shadow-sm">Delete comment</button>
+        </form>
+        {% endif %}
     </div>
 </div>
 {% endfor %}

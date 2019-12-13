@@ -1,26 +1,56 @@
 {% load static %}
 <header><!---->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark rounded-top" style="margin-bottom: 2%;">
-        <a href="{% url 'core:index' %}" class="navbar-brand">FreePost</a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark rounded shadow-sm p-3 mb-5 " style="margin-bottom: 2%;">
+        <a href="{% url 'core:index' %}" class="navbar-brand "> FreePost </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse " id="navb" >
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
             {% if user.is_authenticated %}
-            <a class="btn btn-primary" href="{% url 'users:profile' %}" style="margin-left: 5px;"> Profile </a>
-            <a class="btn btn-primary" href="{% url 'core:create_post' %}" style="margin-left: 5px;"> + Post </a>
-            <a class="btn btn-primary" href="{% url 'users:logout' %}" style="margin-left: 5px;"> Logout </a>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="btn btn-primary" href="{% url 'users:profile' %}" style="margin-left: 5px;">
+                        Profile </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="btn btn-primary" href="{% url 'core:create_post' %}" style="margin-left: 5px;"> +
+                        Post </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="btn btn-primary" href="{% url 'core:category_list' %}" style="margin-left: 5px;">
+                        Category </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="btn btn-primary" href="{% url 'core:top_five_post_list' %}" style="margin-left: 5px;">
+                        Top 5 posts </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="btn btn-primary" href="{% url 'core:news' %}" style="margin-left: 5px;">
+                        News </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="btn btn-primary" href="{% url 'users:logout' %}" style="margin-left: 5px;">
+                        Logout </a>
+                </li>
+            </ul>
             {% else %}
-            <a class="btn btn-primary" href="{% url 'users:login' %}" style="margin-left: 5px;"> Login </a>
-            <a class="btn btn-primary" href="{% url 'users:register' %}" style="margin-left: 5px;"> Register </a>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="btn btn-primary" href="{% url 'users:login' %}" style="margin-left: 5px;"> Login </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="btn btn-primary" href="{% url 'users:register' %}" style="margin-left: 5px;">
+                        Register </a>
+                </li>
+            </ul>
             {% endif%}
 
-            </div>
+        </div>
     </nav>
 
 </header>
-
+<!-- -->
 <!--                  <div class="col"><small><a href="#" data-toggle="modal" data-target="#login-modal">log</a></small></div>
 -->
 <!--        <div>-->

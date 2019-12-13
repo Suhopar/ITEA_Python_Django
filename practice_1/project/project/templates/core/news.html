@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content %}
+
+{% for news in news_list %}
+<div class="jumbotron jumbotron">
+    <div class="container">
+        <p class="lead">{{ news.title|title }}</p>
+        <p class="load">{{ news.text }}</p>
+        <p class="load">{{ news.pub_date}}</p>
+    </div>
+</div>
+
+{% endfor %}
+
+
+{% endblock content %}

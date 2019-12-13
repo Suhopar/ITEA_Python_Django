@@ -8,9 +8,8 @@ class PostForm(forms.ModelForm):
         model = Post
         fields = ('title', 'description', 'text', 'image')
 
-
-# class CommentForm(forms.ModelForm):
-#
-#     class Meta:
-#         model = Comment
-#         fields = ('text_comment',)
+    def clean_title(self):
+        title = self.cleaned_data["title"]
+        if len(title) > 25:
+            raise forms.ValidationError('not valid length')
+        return title
