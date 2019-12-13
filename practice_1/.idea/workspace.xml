@@ -1,28 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d52c0095-ec54-4e03-908f-81fe5423a4b3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/apps/core/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/apps/core/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/apps/core/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/apps/core/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/apps/core/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/apps/core/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/apps/core/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/apps/core/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/apps/core/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/apps/core/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/apps/users/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/apps/users/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/apps/users/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/apps/users/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/apps/users/tests.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/apps/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/apps/users/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/project/celery.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/project/celery.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/project/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/project/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/project/templates/components/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/project/templates/components/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/project/templates/core/create_post.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/project/templates/core/create_post.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/project/templates/core/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/project/templates/core/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/project/templates/core/post.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/project/templates/core/post.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/project/templates/core/post_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/project/templates/core/post_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/project/templates/users/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/project/templates/users/profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/project/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/project/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" />
-    </list>
+    <list default="true" id="d52c0095-ec54-4e03-908f-81fe5423a4b3" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +27,7 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../itea_django_shop" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
